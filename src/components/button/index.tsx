@@ -1,9 +1,9 @@
-import React from "react";
+import React, {ReactNode} from "react";
 
 interface Button {
-    text: string
+    children?: ReactNode
 }
 
 export default (props: Button) => <>
-    <button>{ props.text }</button>
+    <button>{ props.children }</button>
 </>
