@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import routes from '../../constants/routes';
 import localstore from '../../services/localstoreService';
 
-export default ({ render: renderChild, ...rest }) => {
+const RouteGuard = ({ render: renderChild, ...rest }) => {
 	const isAuthenticated = !!localstore.getItem('token');
     return (
 		<Route
@@ -22,3 +22,5 @@ export default ({ render: renderChild, ...rest }) => {
       	/>
     );
 };
+
+export default RouteGuard;

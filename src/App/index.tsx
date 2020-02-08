@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { navigationLinks }  from '../routes/config';
 
-export default () => <>
+const App = () => <>
 	<div className="App">
 		<Router>
 			<header>
@@ -20,3 +20,5 @@ export default () => <>
 		</Router>
 	</div>
 </>;
+
+export default App;
