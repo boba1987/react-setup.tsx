@@ -6,17 +6,17 @@ import Login from '../Login';
 import Home from '../Home';
 import About from '../About';
 
-interface RouteConfig {
+export interface RouteConfig {
     path: string,
     component: any,
     label?: string,
-    to?: string,
+    to: string,
     exact?: boolean,
     tag?: any,
     routes?: any
 }
 
-export const navigationLinks = [
+export const navigationLinks:RouteConfig[] = [
     {
         label: 'home',
         to: routes.home,
@@ -33,20 +33,23 @@ export const navigationLinks = [
     }
 ]
 
-const config:RouteConfig[] = [
+const config:RouteConfig[]  = [
     ...navigationLinks,
     {
         path: routes.profile,
         tag: RouteGuard,
-        component: UserProfile
+        component: UserProfile,
+        to: routes.profile
     },
     {
         path: routes.login,
-        component: Login
+        component: Login,
+        to: routes.profile
     },
     {
         path: "*",
-        component: NotFound
+        component: NotFound,
+        to: '/404'
     }
 ];
 

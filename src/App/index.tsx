@@ -6,21 +6,17 @@ import {
 	BrowserRouter as Router,
 	Switch
 } from "react-router-dom";
+import { navigationLinks }  from '../routes/config';
 
-
-function App() {
-	return (
-		<div className="App">
-			<Router>
-				<header>
-					<Navigation />
-				</header>
-				<Switch>
-					{ renderRoutes }
-				</Switch>
-			</Router>
-		</div>
-	);
-}
-
-export default App;
+export default () => <>
+	<div className="App">
+		<Router>
+			<header>
+				<Navigation navigationLinks={navigationLinks} />
+			</header>
+			<Switch>
+				{ renderRoutes }
+			</Switch>
+		</Router>
+	</div>
+</>;
