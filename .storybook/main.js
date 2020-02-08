@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   stories: ['../src/**/*.stories.tsx'],
   webpackFinal: async config => {
@@ -7,8 +9,13 @@ module.exports = {
       options: {
         presets: [['react-app', { flow: false, typescript: true }]],
       },
+    },
+    {
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+      include: path.resolve(__dirname, '../'),
     });
-    config.resolve.extensions.push('.ts', '.tsx');
+    config.resolve.extensions.push('.ts', '.tsx', '.scss');
     return config;
   },
-  };
+};
