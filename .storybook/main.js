@@ -9,13 +9,20 @@ module.exports = {
       options: {
         presets: [['react-app', { flow: false, typescript: true }]],
       },
-    },
-    {
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
-      include: path.resolve(__dirname, '../'),
     });
-    config.resolve.extensions.push('.ts', '.tsx', '.scss');
+
+    config.module.rules.push({
+      test: /\.s[ac]ss$/i,
+      use: [
+        'style-loader',
+        'css-loader',
+        'sass-loader'
+      ],
+      include: path.resolve(__dirname, '../')
+    });
+    
+    config.resolve.extensions.push('.ts', '.tsx', '.scss', '.css', '.sass');
+    console.dir(config, { depth: null }) || config
     return config;
   },
 };
