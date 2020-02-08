@@ -1,7 +1,7 @@
 import React from 'react';
 import { navigationLinks } from '../../routes/config';
 import { NavLink } from 'react-router-dom';
-import './navigation.module.scss';
+import styles from './navigation.module.scss';
 
 function Navigation() {
 	return (
@@ -11,7 +11,7 @@ function Navigation() {
 			<ul>
 				{ navigationLinks.map(({label, to, exact}, index) =>
 					<li key={index}>
-						<NavLink to={to} exact={exact} activeClassName="selected">{label}</NavLink>
+						<NavLink to={to} exact={exact} activeClassName={styles.selected}>{label}</NavLink>
 					</li>) }
 			</ul>
 
