@@ -151,6 +151,7 @@
     "@storybook/addon-links": "^5.3.12",
     "@storybook/addons": "^5.3.12",
     "@storybook/react": "^5.3.12",
+    "generate-react-cli": "^3.0.0",
     "node-sass": "^4.13.1",
     "react-docgen-typescript-loader": "^3.6.0",
     "ts-loader": "^6.2.1"
