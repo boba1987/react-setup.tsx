@@ -43,7 +43,7 @@ Generates component boilerplate with story file, test, scss and component file.
 
 ### `npm run storybook`
 
-Starts react storybook for isolation for component development. 
+Starts react storybook for full isolation component development. 
 More on https://storybook.js.org/docs/guides/guide-react/
 
 ## Learn More
