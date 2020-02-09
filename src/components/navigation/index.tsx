@@ -7,7 +7,7 @@ interface NavigationLinks {
 	navigationLinks: RouteConfig[]
 }
 
-const Navivation = (props: NavigationLinks) => <>
+const Navigation = (props: NavigationLinks) => <>
 	<NavLink className="navigation-logo" to={"/"}>Logo</NavLink>
 
 	<ul>
@@ -18,4 +18,4 @@ const Navivation = (props: NavigationLinks) => <>
 	</ul>
 </>
 
-export default Navivation;
+export default Navigation;
