@@ -1,10 +1,11 @@
+import { lazy } from 'react';
 import routes from '../../constants/routes';
-import RouteGuard from '../../components/routeGuard';
-import UserProfile from '../UserProfile';
-import NotFound from '../NotFound';
-import Login from '../Login';
-import Home from '../Home';
-import About from '../About';
+const Home = lazy(() => import('../Home'));
+const RouteGuard = lazy(() => import('../../components/routeGuard'));
+const UserProfile = lazy(() => import('../UserProfile'));
+const NotFound = lazy(() => import('../NotFound'));
+const Login = lazy(() => import('../Login'));
+const About = lazy(() => import('../About'));
 
 export interface RouteConfig {
     path: string,
