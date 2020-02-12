@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { navigationLinks }  from '../routes/config';
 
-const App = () => <>
+const App = () =>
 	<div className="App">
 		<Router>
 			<header>
@@ -21,6 +21,5 @@ const App = () => <>
 			</Suspense>
 		</Router>
 	</div>
-</>;
 
 export default App;
