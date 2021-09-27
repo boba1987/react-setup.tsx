@@ -4,6 +4,7 @@ import renderRoutes from '../routes';
 import Navigation from '../components/navigation';
 import {
 	BrowserRouter as Router,
+	NavLink,
 	Switch
 } from "react-router-dom";
 import { navigationLinks }  from '../routes/config';
@@ -26,6 +27,7 @@ const App = () => {
 				<Router>
 					<header>
 						<Navigation navigationLinks={navigationLinks} />
+						{!authTokens && <NavLink to={'/login'} exact={true}>Login</NavLink>}
 					</header>
 					<Suspense fallback={<div>Loading...</div>}>
 						<Switch>
