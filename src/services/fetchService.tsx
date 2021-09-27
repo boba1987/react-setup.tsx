@@ -1,7 +1,7 @@
 interface RequestObject {
     url: string,
-    headers: any,
-    data?: object,
+    headers?: any,
+    data?: object | string,
     method?: string
 }
 
@@ -11,7 +11,10 @@ export default async ({url, headers, data, method}: RequestObject)=> {
             url,
             {
                 method: method || 'GET',
-                headers,
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...headers
+                },
                 body: data ? JSON.stringify(data) : undefined
             }
         )
