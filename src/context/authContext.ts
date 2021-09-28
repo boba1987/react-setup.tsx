@@ -8,7 +8,7 @@ export type Token = {
 
 export type AuthContextType = {
     authTokens: Token,
-    setAuthTokens?: (data: any) => void
+    setAuthTokens: (data: any) => void
 } | null;
 
 const initialContext: AuthContextType = {
