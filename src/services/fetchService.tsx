@@ -19,15 +19,24 @@ export default async ({url, headers, data, method}: RequestObject)=> {
             }
         )
 
+        const JSONresponse = await response.json();
+
         if (response.status === 401) {
-            console.log('not authenticated user')
+            console.log('not authenticated user');
+            throw JSONresponse;
         }
 
         if (response.status === 403) {
-            console.log('not allowed to see')
+            console.log('not allowed to see');
+            throw JSONresponse;
+        }
+
+        if (response.status > 400) {
+            console.log('error response');
+            throw JSONresponse;
         }
     
-        return await response.json();
+        return JSONresponse;
     } catch (error) {
         console.error('Error:', error);
         throw error;

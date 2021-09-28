@@ -30,6 +30,7 @@ export default function Login() {
 
   useEffect(() => {
     if (user !== undefined) {
+      debugger;
       authContext?.setAuthTokens(user.accessToken);
       history.push(routes.profile);
     }
