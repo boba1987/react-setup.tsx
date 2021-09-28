@@ -14,7 +14,7 @@ export default function Login() {
   const dispatch = useDispatch();
   let history = useHistory();
   const authContext = useContext(AuthContext);
-  const {user} = useSelector((state: any) => state.user);
+  const {user, error} = useSelector((state: any) => state.user);
   const login = (event: SyntheticEvent): void => {
     event.preventDefault();
     const target = event.target as typeof event.target & Credentials;
@@ -29,12 +29,11 @@ export default function Login() {
   }
 
   useEffect(() => {
-    if (user !== undefined) {
-      debugger;
+    if (user) {
       authContext?.setAuthTokens(user.accessToken);
       history.push(routes.profile);
     }
-  }, [authContext, history, user]);
+  }, [authContext, error, history, user]);
 
   return <>
     <h1>Login page</h1>
@@ -45,5 +44,6 @@ export default function Login() {
       <input id="password" type="password" required/>
       <button type="submit">Login</button>
     </form>
+    {error && error.message}
   </>;
 }

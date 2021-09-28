@@ -5,11 +5,16 @@ export default function loginReducer(state = {}, action: any) {
 		case USER_FETCH_SUCCEEDED:
 			return {
 				...state,
-				user: action.user
+				user: action.user,
+				error: null
 			};
 
 		case USER_FETCH_FAILED:
-			return state;
+			return {
+				...state,
+				error: action.error,
+				user: null
+			};
 		default:
 			return state;
 	}
