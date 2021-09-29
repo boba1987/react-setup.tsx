@@ -31,6 +31,7 @@ export default function Login() {
   useEffect(() => {
     if (user) {
       authContext?.setAuthTokens(user.accessToken);
+      authContext?.setUserDetails(user.user);
       history.push(routes.profile);
     }
   }, [authContext, error, history, user]);

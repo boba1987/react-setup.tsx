@@ -4,18 +4,26 @@ import user from '../constants/user';
 export type Token = {
     token: string,
     refreshToken?: string
-} | null
+} | null;
+
+export type User = {
+    email: string,
+    id: number
+} | null;
 
 export type AuthContextType = {
     authTokens: Token,
-    setAuthTokens: (data: any) => void
+    userDetails: User,
+    setAuthTokens: (data: Token) => void
+    setUserDetails: (data: User) => void
 } | null;
 
 const initialContext: AuthContextType = {
     authTokens: null,
-    setAuthTokens: (data: any) => {
-        localStorage.setItem(user.token, JSON.stringify(data))
-    }
+    userDetails: null,
+    setAuthTokens: (data: Token) => localStorage.setItem(user.token, JSON.stringify(data)),
+    setUserDetails: (data: User) => localStorage.setItem(user.user, JSON.stringify(data))
+    
 }
 
 export const AuthContext = createContext<AuthContextType>(initialContext);
