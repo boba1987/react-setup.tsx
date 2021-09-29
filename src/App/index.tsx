@@ -8,8 +8,9 @@ import {
 	Switch
 } from "react-router-dom";
 import { navigationLinks }  from '../routes/config';
-import { AuthContext, Token, User } from "../context/authContext";
+import { AuthContext, Token, User, initialContext } from "../context/authContext";
 import userConstant from '../constants/user';
+import Button from '../components/button/button';
 
 const App = () => {
 	const accessToken = localStorage.getItem(userConstant.token);
@@ -29,6 +30,12 @@ const App = () => {
 		setUserDetails(data);
 	};
 
+	const logout = () => {
+		if (initialContext?.clearUserDetails) initialContext.clearUserDetails();
+		setAuthTokens(null);
+		setUserDetails(null);
+	}
+
 	return (
 		<AuthContext.Provider value={{ 
 				authTokens,
@@ -41,6 +48,7 @@ const App = () => {
 					<header>
 						<Navigation navigationLinks={navigationLinks} />
 						{!authTokens && <NavLink to={'/login'} exact={true}>Login</NavLink>}
+						{authTokens && <Button onclick={logout}>Logout</Button>}
 					</header>
 					<Suspense fallback={<div>Loading...</div>}>
 						<Switch>

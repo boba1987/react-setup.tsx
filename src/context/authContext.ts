@@ -16,13 +16,18 @@ export type AuthContextType = {
     userDetails: User,
     setAuthTokens: (data: Token) => void
     setUserDetails: (data: User) => void
+    clearUserDetails?: ()=> void
 } | null;
 
-const initialContext: AuthContextType = {
+export const initialContext: AuthContextType = {
     authTokens: null,
     userDetails: null,
     setAuthTokens: (data: Token) => localStorage.setItem(user.token, JSON.stringify(data)),
-    setUserDetails: (data: User) => localStorage.setItem(user.user, JSON.stringify(data))
+    setUserDetails: (data: User) => localStorage.setItem(user.user, JSON.stringify(data)),
+    clearUserDetails: ()=> {
+        localStorage.removeItem(user.token);
+        localStorage.removeItem(user.user);
+    }
     
 }
 
