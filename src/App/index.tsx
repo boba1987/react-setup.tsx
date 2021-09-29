@@ -31,9 +31,11 @@ const App = () => {
 	};
 
 	const logout = () => {
-		if (initialContext?.clearUserDetails) initialContext.clearUserDetails();
-		setAuthTokens(null);
-		setUserDetails(null);
+		if (initialContext?.clearUserDetails) {
+			initialContext.clearUserDetails();
+			setAuthTokens(null);
+			setUserDetails(null);
+		}
 	}
 
 	return (
@@ -47,8 +49,7 @@ const App = () => {
 				<Router>
 					<header>
 						<Navigation navigationLinks={navigationLinks} />
-						{!authTokens && <NavLink to={'/login'} exact={true}>Login</NavLink>}
-						{authTokens && <Button onclick={logout}>Logout</Button>}
+						{authTokens ? <Button onclick={logout}>Logout</Button> : <NavLink to={'/login'} exact={true}>Login</NavLink>}
 					</header>
 					<Suspense fallback={<div>Loading...</div>}>
 						<Switch>
