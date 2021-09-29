@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react';
 import user from '../constants/user';
 
 export type Token = {
-    token: string,
+    accessToken: string,
     refreshToken?: string
 } | null;
 

@@ -9,21 +9,23 @@ import {
 } from "react-router-dom";
 import { navigationLinks }  from '../routes/config';
 import { AuthContext, Token, User } from "../context/authContext";
-import user from '../constants/user';
+import userConstant from '../constants/user';
 
 const App = () => {
-	const token = localStorage.getItem(user.token);
-	const tokenJson = token ? JSON.parse(token) : null;
-	const [authTokens, setAuthTokens] = useState<Token>(tokenJson);
-	const [userDetails, setUserDetails] = useState<User>(tokenJson);
+	const accessToken = localStorage.getItem(userConstant.token);
+	const accessTokenJson = accessToken ? JSON.parse(accessToken) : null;
+	const user = localStorage.getItem(userConstant.user);
+	const userJson = user ? JSON.parse(user) : null;
+	const [authTokens, setAuthTokens] = useState<Token>(accessTokenJson);
+	const [userDetails, setUserDetails] = useState<User>(userJson);
 
 	const setTokens = (data: Token) => {	
-		localStorage.setItem(user.token, JSON.stringify(data));
+		localStorage.setItem(userConstant.token, JSON.stringify(data));
 		setAuthTokens(data);
 	};
 
 	const setUser = (data: User) => {	
-		localStorage.setItem(user.user, JSON.stringify(data));
+		localStorage.setItem(userConstant.user, JSON.stringify(data));
 		setUserDetails(data);
 	};
 
