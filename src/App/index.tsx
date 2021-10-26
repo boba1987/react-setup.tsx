@@ -13,6 +13,7 @@ import { AuthContext, Token, User, initialContext } from "../context/authContext
 import userConstant from '../constants/user';
 import Button from '../components/button/button';
 import routes from '../constants/routes';
+import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
 
 const App = () => {
 	const accessToken = localStorage.getItem(userConstant.token);
@@ -44,24 +45,26 @@ const App = () => {
 	}
 
 	return (
-		<AuthContext.Provider value={{ 
+		<ErrorBoundary>
+			<AuthContext.Provider value={{ 
 				authTokens,
 				userDetails,
 				setAuthTokens: setTokens,
 				setUserDetails: setUser
 			}}>
-			<div className="App">
-				<header>
-					<Navigation navigationLinks={navigationLinks.filter((link: any) => authTokens ? true : !link.private)} />
-					{authTokens ? <Button onclick={logout}>Logout</Button> : <NavLink to={'/login'} exact={true}>Login</NavLink>}
-				</header>
-				<Suspense fallback={<div>Loading...</div>}>
-					<Switch>
-						{ renderRoutes }
-					</Switch>
-				</Suspense>
-			</div>
-		</AuthContext.Provider>
+				<div className="App">
+					<header>
+						<Navigation navigationLinks={navigationLinks.filter((link: any) => authTokens ? true : !link.private)} />
+						{authTokens ? <Button onclick={logout}>Logout</Button> : <NavLink to={'/login'} exact={true}>Login</NavLink>}
+					</header>
+					<Suspense fallback={<div>Loading...</div>}>
+						<Switch>
+							{ renderRoutes }
+						</Switch>
+					</Suspense>
+				</div>
+			</AuthContext.Provider>
+		</ErrorBoundary>
 	)
 }
 
