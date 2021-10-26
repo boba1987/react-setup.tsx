@@ -14,6 +14,7 @@ import userConstant from '../constants/user';
 import Button from '../components/button/button';
 import routes from '../constants/routes';
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
+import { RouteConfig } from '../routes/config';
 
 const App = () => {
 	const accessToken = localStorage.getItem(userConstant.token);
@@ -54,7 +55,7 @@ const App = () => {
 			}}>
 				<div className="App">
 					<header>
-						<Navigation navigationLinks={navigationLinks.filter((link: any) => authTokens ? true : !link.private)} />
+						<Navigation navigationLinks={navigationLinks.filter((link: RouteConfig) => authTokens ? true : !link.isPrivate)} />
 						{authTokens ? <Button onclick={logout}>Logout</Button> : <NavLink to={'/login'} exact={true}>Login</NavLink>}
 					</header>
 					<Suspense fallback={<div>Loading...</div>}>
