@@ -1,7 +1,6 @@
 import { lazy } from 'react';
 import routes from '../../constants/routes';
 const Home = lazy(() => import('../Home'));
-const RouteGuard = lazy(() => import('../../components/routeGuard'));
 const UserProfile = lazy(() => import('../UserProfile'));
 const NotFound = lazy(() => import('../NotFound'));
 const Login = lazy(() => import('../Login'));
@@ -14,9 +13,8 @@ export interface RouteConfig {
     label?: string,
     to: string,
     exact?: boolean,
-    tag?: any,
     routes?: any,
-    private?: boolean
+    isPrivate?: boolean
 }
 
 export const navigationLinks:RouteConfig[] = [
@@ -40,7 +38,7 @@ export const navigationLinks:RouteConfig[] = [
         exact: true,
         path: routes.todos,
         component: ToDo,
-        private: true
+        isPrivate: true
     }
 ]
 
@@ -48,9 +46,9 @@ const config:RouteConfig[]  = [
     ...navigationLinks,
     {
         path: routes.profile,
-        tag: RouteGuard,
         component: UserProfile,
-        to: routes.profile
+        to: routes.profile,
+        isPrivate: true
     },
     {
         path: routes.login,
