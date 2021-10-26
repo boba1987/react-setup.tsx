@@ -13,5 +13,14 @@ export default {
 			method: 'POST',
 			data: credentials
 		})
+	},
+
+	fetchToDos(accessToken: string) {
+		return fetchService({
+			headers: {
+				'Authorization': `Bearer ${accessToken}`
+			},
+			url: `${process.env.REACT_APP_BACKEND_URL as string}/todo`,
+		})
 	}
 };

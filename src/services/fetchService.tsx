@@ -1,6 +1,8 @@
 interface RequestObject {
     url: string,
-    headers?: any,
+    headers?: {
+        [key: string]: string
+    },
     data?: object | string,
     method?: string
 }

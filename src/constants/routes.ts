@@ -2,5 +2,6 @@ export default {
     login: '/login',
     home: '/',
     profile: '/profile',
-    about: '/about'
+    about: '/about',
+    todos: '/todos'
 };

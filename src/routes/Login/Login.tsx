@@ -48,9 +48,9 @@ export default function Login() {
     <h1>Login page</h1>
     <form onSubmit={login}>
       <label htmlFor="email">Email</label>
-      <input id="email" type="email"  required/>
+      <input id="email" type="email"  autoComplete="username" required/>
       <label htmlFor="password">Password</label>
-      <input id="password" type="password" required/>
+      <input id="password" type="password" autoComplete="current-password" required/>
       <button type="submit">Login</button>
     </form>
     {error && error.message}

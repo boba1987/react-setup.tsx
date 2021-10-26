@@ -6,6 +6,7 @@ const UserProfile = lazy(() => import('../UserProfile'));
 const NotFound = lazy(() => import('../NotFound'));
 const Login = lazy(() => import('../Login'));
 const About = lazy(() => import('../About'));
+const ToDo = lazy(()=> import('../ToDo'));
 
 export interface RouteConfig {
     path: string,
@@ -14,7 +15,8 @@ export interface RouteConfig {
     to: string,
     exact?: boolean,
     tag?: any,
-    routes?: any
+    routes?: any,
+    private?: boolean
 }
 
 export const navigationLinks:RouteConfig[] = [
@@ -31,6 +33,14 @@ export const navigationLinks:RouteConfig[] = [
         exact: true,
         path: routes.about,
         component: About
+    },
+    {
+        label: 'todos',
+        to: routes.todos,
+        exact: true,
+        path: routes.todos,
+        component: ToDo,
+        private: true
     }
 ]
 
