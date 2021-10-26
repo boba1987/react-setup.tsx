@@ -11,7 +11,17 @@
       "withTest": true
     },
     "withStory": true,
-    "withLazy": true
+    "withLazy": true,
+    "default": {
+      "path": "src/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true
+    }
   },
-  "usesTypeScript": true
+  "usesTypeScript": true,
+  "usesCssModule": true,
+  "cssPreprocessor": "scss",
+  "testLibrary": "Testing Library"
 }
