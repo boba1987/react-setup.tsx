@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styles from './Todo.module.scss';
 import ToDoInterface from '../../models/ToDo.interface';
 
@@ -14,4 +14,4 @@ const Todo = ({id, done, title, description, createdAt, updatedAt}: ToDoInterfac
   </div>
 );
 
-export default Todo;
+export default memo(Todo);

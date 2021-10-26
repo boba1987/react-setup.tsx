@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import { Route, Redirect } from "react-router-dom";
 import routes from '../../constants/routes';
 import { useAuth } from "../../context/authContext";
@@ -24,4 +24,4 @@ const RouteGuard = ({ render: renderChild, ...rest }) => {
 	);
 };
 
-export default RouteGuard;
+export default memo(RouteGuard);

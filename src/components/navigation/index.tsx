@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{memo} from 'react';
 import { RouteConfig } from '../../routes/config';
 import { NavLink } from 'react-router-dom';
 import styles from './navigation.module.scss';
@@ -18,4 +18,4 @@ const Navigation = (props: NavigationLinks) => <>
 	</ul>
 </>
 
-export default Navigation;
+export default memo(Navigation);
