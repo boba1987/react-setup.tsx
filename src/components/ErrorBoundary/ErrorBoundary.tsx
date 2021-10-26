@@ -20,7 +20,7 @@ class ErrorBoundary extends React.Component<IProps, IState> {
 
   render() {
     if (this.state.hasError) {
-      return <div className={styles.ErrorBoundary}>Something went wrong..</div>;
+      return <div className={styles.ErrorBoundary} data-testid="ErrorBoundary">Something went wrong..</div>;
     }
 
     return this.props.children; 

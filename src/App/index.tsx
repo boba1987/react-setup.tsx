@@ -53,7 +53,7 @@ const App = () => {
 				setAuthTokens: setTokens,
 				setUserDetails: setUser
 			}}>
-				<div className="App">
+				<div className="App" data-testid="App">
 					<header>
 						<Navigation navigationLinks={navigationLinks.filter((link: RouteConfig) => authTokens ? true : !link.isPrivate)} />
 						{authTokens ? <Button onclick={logout}>Logout</Button> : <NavLink to={'/login'} exact={true}>Login</NavLink>}

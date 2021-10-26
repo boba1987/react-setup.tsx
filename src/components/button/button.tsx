@@ -6,7 +6,7 @@ interface ButtonInterface {
     onclick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 const Button = (props: ButtonInterface) => <>
-    <button className={styles.button} onClick={props.onclick}>{ props.children }</button>
+    <button className={styles.button} onClick={props.onclick} data-testid="button">{ props.children }</button>
 </>
 
 export default memo(Button);
